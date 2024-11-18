@@ -1,0 +1,12 @@
+name: "Common Setup"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout the project
+      uses: actions/checkout@v4
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true

@@ -36,7 +36,7 @@ platform :ios do
       scheme: "ContinuousIntegrationDemoTests",
       clean: true,
       configuration: "Debug",
-      devices: ["iPhone 15 Pro (17.5)"],
+      devices: ["iPhone 15 Pro"],
       prelaunch_simulator: true,
       ensure_devices_found: true
     )

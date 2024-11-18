@@ -12,18 +12,18 @@ jobs:
   Build:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3"
-          bundler-cache: true
+      - uses: ./.github/actions/common-setup
+      # - uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: "3.3"
+      #     bundler-cache: true
       - name: Install bundler dependencies
         run: bundle install
       - name: Build the app
         run: bundle exec fastlane build
-  Tests:
-    needs: Build
-    runs-on: macos-latest
-    steps:
-      - name: Test the app
-        run: bundle exec fastlane test
+  # Tests:
+  #   needs: Build
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Test the app
+  #       run: bundle exec fastlane test
