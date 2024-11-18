@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
+      - uses: .github/actions/setup
       - name: Build the app
         run: bundle exec fastlane build
   # Tests:
