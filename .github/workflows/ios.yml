@@ -11,12 +11,12 @@ on:
 jobs:
   Build:
     runs-on: macos-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
-          with:
-            ruby-version: '3.3'
-            bundler-cache: true
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
       - name: Install bundler dependencies
         run: bundle install
       - name: Build the app
