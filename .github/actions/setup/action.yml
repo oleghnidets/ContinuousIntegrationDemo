@@ -4,9 +4,11 @@ runs:
   using: "composite"
   steps:
     - name: Setup Ruby
+      shell: bash
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: "3.3"
         bundler-cache: true
     - name: Install bundler deps
+      shell: bash
       run: bundle install
