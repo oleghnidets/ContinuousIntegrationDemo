@@ -36,7 +36,8 @@ platform :ios do
       scheme: "ContinuousIntegrationDemoTests",
       clean: true,
       configuration: "Debug",
-      devices: ["iPhone SE (3rd generation)"]
+      devices: ["iPhone SE (3rd generation)"],
+      prelaunch_simulator: true
     )
   end
 
