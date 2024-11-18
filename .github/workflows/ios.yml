@@ -22,5 +22,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/setup
+      - run: xcrun simctl list devices --json
       - name: Test the app
         run: bundle exec fastlane test
