@@ -21,3 +21,8 @@ jobs:
         run: bundle install
       - name: Build the app
         run: bundle exec fastlane build
+  Tests:
+    needs: Build
+    runs-on: macos-latest
+    - name: Test the app
+        run: bundle exec fastlane test

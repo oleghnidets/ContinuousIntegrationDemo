@@ -30,7 +30,7 @@ platform :ios do
     )
   end
   
-  lane :test_app do
+  lane :test do
     scan(
       project: "ContinuousIntegrationDemo.xcodeproj",
       scheme: "ContinuousIntegrationDemoTests",
