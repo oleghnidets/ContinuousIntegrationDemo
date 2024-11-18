@@ -22,7 +22,15 @@ platform :ios do
   end
   
   lane :test_app do
-    # fastlane: test
+    scan(
+      project: "ContinuousIntegrationDemo.xcodeproj",
+      scheme: "ContinuousIntegrationDemoTests",
+      clean: true,
+      configuration: "Debug",
+      devices: ["iPhone 15 Pro (17.5)"],
+      prelaunch_simulator: true,
+      ensure_devices_found: true
+    )
   end
 
   before_all do
