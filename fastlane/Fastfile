@@ -35,10 +35,7 @@ platform :ios do
       project: "ContinuousIntegrationDemo.xcodeproj",
       scheme: "ContinuousIntegrationDemoTests",
       clean: true,
-      configuration: "Debug",
-      devices: ["iPhone 15 Pro"],
-      prelaunch_simulator: true,
-      ensure_devices_found: true
+      configuration: "Debug"
     )
   end
 
