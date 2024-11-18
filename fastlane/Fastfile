@@ -36,7 +36,7 @@ platform :ios do
       scheme: "ContinuousIntegrationDemoTests",
       clean: true,
       configuration: "Debug",
-      destination: "platform=iOS Simulator,name=iPhone SE,OS=latest"
+      devices: ["iPhone SE (17.0)"]
     )
   end
 
