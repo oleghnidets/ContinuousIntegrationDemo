@@ -18,7 +18,16 @@ default_platform(:ios)
 platform :ios do
 
   lane :build do
-    # fastlane: build
+    build_app(
+      project: "ContinuousIntegrationDemo.xcodeproj",
+      configuration: "Debug",
+      scheme: "ContinuousIntegrationDemo",
+      silent: true,
+      clean: true,
+      destination: "platform=iOS Simulator,name=iPhone 15",
+      skip_archive: true,
+      skip_package_ipa: true
+    )
   end
   
   lane :test_app do
