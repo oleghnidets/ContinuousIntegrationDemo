@@ -9,16 +9,18 @@ on:
     branches:
       - master
 jobs:
-  Build:
+  # Build:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: ./.github/actions/setup
+  #     - name: Build the app
+  #       run: bundle exec fastlane build
+  Tests:
+    # needs: Build
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/setup
-      - name: Build the app
-        run: bundle exec fastlane build
-  # Tests:
-  #   needs: Build
-  #   runs-on: macos-latest
-  #   steps:
-  #     - name: Test the app
-  #       run: bundle exec fastlane test
+      - name: Test the app
+        run: bundle exec fastlane test
