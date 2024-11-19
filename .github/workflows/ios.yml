@@ -3,13 +3,37 @@ name: Build and Tests
 on:
   push:
     branches:
-      - master
+      - main
       - feature/ci
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
-  # github: build
-
-  # github: test
+  Build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Install bundler deps
+        run: bundle install
+      - name: Build the app
+        run: bundle exec fastlane build
+  Tests:
+    needs: Build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Install bundler deps
+        run: bundle install
+      - name: Test the app
+        run: bundle exec fastlane test
