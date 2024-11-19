@@ -14,13 +14,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3"
-          bundler-cache: true
-      - name: Install bundler deps
-        run: bundle install
+      - uses: ./.github/actions/action
       - name: Build the app
         run: bundle exec fastlane build_my_app
   Tests:
@@ -28,12 +22,6 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3"
-          bundler-cache: true
-      - name: Install bundler deps
-        run: bundle install
+      - uses: ./.github/actions/action
       - name: Test the app
         run: bundle exec fastlane test
