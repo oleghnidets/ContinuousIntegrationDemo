@@ -31,16 +31,23 @@ platform :ios do
   end
   
   lane :test do
-    scan(
-      project: "ContinuousIntegrationDemo.xcodeproj",
-      scheme: "ContinuousIntegrationDemoTests",
-      clean: true,
-      configuration: "Debug",
-      devices: ["iPhone 15"],
-      prelaunch_simulator: true,
-      ensure_devices_found: true
-    )
+    # scan(
+    #   project: "ContinuousIntegrationDemo.xcodeproj",
+    #   scheme: "ContinuousIntegrationDemoTests",
+    #   clean: true,
+    #   configuration: "Debug",
+    #   devices: ["iPhone 15"],
+    #   prelaunch_simulator: true,
+    #   ensure_devices_found: true
+    # )
+    sh("cd .. && xcodebuild -project ContinuousIntegrationDemo.xcodeproj -scheme ContinuousIntegrationDemoTests -destination 'platform=iOS Simulator,name=iPhone 15' -sdk iphonesimulator test")
   end
 
-  # fastlane: before after
+  before_all do
+    puts "Starting lanes 🛫"
+  end
+  
+  after_all do |lane|
+    puts "🛬 Get some coffee now ☕️"
+  end
 end
