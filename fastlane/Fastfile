@@ -18,34 +18,12 @@ default_platform(:ios)
 platform :ios do
 
   lane :build do
-    build_app(
-      project: "ContinuousIntegrationDemo.xcodeproj",
-      configuration: "Debug",
-      scheme: "ContinuousIntegrationDemo",
-      silent: true,
-      clean: true,
-      destination: "platform=iOS Simulator,name=iPhone 15",
-      skip_archive: true,
-      skip_package_ipa: true
-    )
+    # fastlane build
   end
   
   lane :test do
-    scan(
-      project: "ContinuousIntegrationDemo.xcodeproj",
-      scheme: "ContinuousIntegrationDemoTests",
-      clean: true,
-      configuration: "Debug",
-      devices: ["iPhone SE (3rd generation)"],
-      prelaunch_simulator: true
-    )
+    # fastlane test
   end
 
-  before_all do
-    puts "Starting lanes 🛫"
-  end
-
-  after_all do |lane|
-    puts "🛬 Get some cofee now ☕️"
-  end
+  # fastlane: before after
 end
