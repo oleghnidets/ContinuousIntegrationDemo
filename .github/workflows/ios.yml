@@ -22,7 +22,7 @@ jobs:
       - name: Install bundler deps
         run: bundle install
       - name: Build the app
-        run: bundle exec fastlane build
+        run: bundle exec fastlane build_my_app
   Tests:
     needs: Build
     runs-on: macos-latest
