@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/action
+      - uses: ./.github/actions/setup
       - name: Build the app
         run: bundle exec fastlane build_my_app
   Tests:
@@ -22,6 +22,6 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/action
+      - uses: ./.github/actions/setup
       - name: Test the app
         run: bundle exec fastlane test
